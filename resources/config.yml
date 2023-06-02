@@ -1,0 +1,22 @@
+messages:
+  # Player-Related
+  player.nobreak.attempt: "§cYou cannot break blocks in this claim."
+  player.nobuild.attempt: "§cYou cannot build blocks in this claim."
+  player.nopvp.attempt: "§cYou cannot engage in combat in this claim."
+
+  # Commands
+  command.invalid.input: "§cPlease provide a valid sub-command§7: §fhelp, teleport, position1, position2, editflags, create, here, list."
+  command.position1.success: "§aSuccessfully Set Position 1."
+  command.position2.success: "§aSuccessfully Set Position 2."
+  command.missing.name: "§cYou are missing the nametag argument."
+  command.missing.position: "§cYou haven't finished the claiming process."
+  command.outside.claim: "§cYou are not inside a claim."
+  command.insideof.success: "§aYou are inside of claim {claim}."
+  command.teleport.success: "§aYou teleported to {claim}."
+  command.list.header: "§aList of Claims"
+  command.list.format: "§f- §e{name} §7({x1}:{y1}:{z1}:{world}|{x2}:{y2}:{z2}:{world})"
+  command.claim.failed: "§cFailed to find claim."
+  command.flag.removed: "§aFlag {flag} has been added to the claim."
+  command.flag.added: "§aFlag {flag} has been removed from the claim."
+  command.claim.create: "§aSuccessfully created claim {claim}."
+  command.claims.overlap: "§cYour claim overlaps with another claim."

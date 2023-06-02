@@ -1,0 +1,15 @@
+---
+name: ClaimsPlugin
+github: github.com/santanaswrld
+description: A LandClaims Plugin completely written by PocketAI
+main: claims\ClaimsPlugin
+version: 0.0.1-PRE
+api: [ 5.0.0 ]
+authors:
+  - SantanasWRLD
+  - NopeNotDark
+
+permissions:
+  claims.administrator:
+    default: op
+...
