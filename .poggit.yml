@@ -5,4 +5,5 @@ branches:
 projects:
   Claims:
     path: ""
+    icon: "icon.png"
 ...
