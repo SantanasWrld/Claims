@@ -142,7 +142,7 @@ final class ClaimCommand extends Command
                     $sender->sendMessage($this->getPlugin()->getMessage("command.claim.failed"));
                 }
                 break;
-                
+
             case "help":
             default:
                 $sender->sendMessage($this->getPlugin()->getMessage("command.invalid.input"));
@@ -162,7 +162,7 @@ final class ClaimCommand extends Command
             }
 
             $flag = $flags[$data];
-            if ($claim->isFlagActive($flag)) {
+            if ($claim !== null && $claim->isFlagActive($flag)) {
                 $claim->removeFlag($flag);
                 $this->plugin->getDataManager()->saveClaim($claim);
                 $player->sendMessage($this->getPlugin()->getMessage("command.flag.added", ["{flag}" => $flag]));
