@@ -1,5 +1,5 @@
 ---
-name: ClaimsPlugin
+name: Claims
 github: github.com/santanaswrld
 description: A LandClaims Plugin completely written by PocketAI
 main: claims\ClaimsPlugin
