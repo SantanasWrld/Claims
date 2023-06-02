@@ -2,7 +2,6 @@
 
 // Written by PocketAI (An AI language model designed to revolutionize plugin development for PocketMine)
 
-
 declare(strict_types=1);
 
 namespace claims\session\framework;
