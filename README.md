@@ -1,4 +1,6 @@
-# Claims
+# Claims [![](https://poggit.pmmp.io/shield.state/ClaimsPlugin)](https://poggit.pmmp.io/p/ClaimsPlugin)
+<a href="https://poggit.pmmp.io/p/ClaimsPlugin"><img src="https://poggit.pmmp.io/shield.state/ClaimsPlugin"></a> [![](https://poggit.pmmp.io/shield.api/ClaimsPlugin)](https://poggit.pmmp.io/p/ClaimsPlugin)
+<a href="https://poggit.pmmp.io/p/ClaimsPlugin"><img src="https://poggit.pmmp.io/shield.api/ClaimsPlugin"></a>
 
 This plugin allows administrators to create, edit, list, and teleport to land claims on a PocketMine server. These claims have a variety of customizable flags to define what actions are permitted within the claim's boundaries.
 
