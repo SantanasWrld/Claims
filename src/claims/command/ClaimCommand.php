@@ -142,8 +142,8 @@ final class ClaimCommand extends Command
                     $sender->sendMessage($this->getPlugin()->getMessage("command.claim.failed"));
                 }
                 break;
-
-                help:
+                
+            case "help":
             default:
                 $sender->sendMessage($this->getPlugin()->getMessage("command.invalid.input"));
                 break;
