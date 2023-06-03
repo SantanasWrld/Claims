@@ -60,7 +60,7 @@ final class ClaimsPlugin extends PluginBase
 
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
 
-        $this->getServer()->getCommandMap()->register("claimsplugin", new ClaimCommand($this));
+        $this->getServer()->getCommandMap()->register("claims", new ClaimCommand($this));
     }
 
     /**
