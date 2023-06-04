@@ -179,7 +179,7 @@ final class ClaimCommand extends Command implements PluginOwned
             }
 
             $flag = $flags[$data];
-            if ($claim->isFlagActive($flag)) {
+            if ($claim->isFlagActive($flag) !== null) {
                 $claim->removeFlag($flag);
                 $this->plugin->getDataManager()->saveClaim($claim);
                 $player->sendMessage($this->getOwningPlugin()->getMessage("command.flag.added", ["{flag}" => $flag]));
