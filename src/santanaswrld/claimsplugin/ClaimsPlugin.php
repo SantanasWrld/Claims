@@ -1,5 +1,5 @@
 <?php
- 
+
 /**
  *
  * Written by PocketAI (A revolutionary AI for PocketMine-MP plugin developing)

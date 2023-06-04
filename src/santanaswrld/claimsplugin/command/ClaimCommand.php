@@ -79,12 +79,12 @@ final class ClaimCommand extends Command implements PluginOwned
                     return;
                 }
 
-                if ($session->getStartingPosition() === null) {
+                if ($session->getStartingPosition() == null) {
                     $sender->sendMessage($this->getOwningPlugin()->getMessage("command.missing.position"));
                     return;
                 }
 
-                if ($session->getEndingPosition() === null) {
+                if ($session->getEndingPosition() == null) {
                     $sender->sendMessage($this->getOwningPlugin()->getMessage("command.missing.position"));
                     return;
                 }
@@ -173,7 +173,6 @@ final class ClaimCommand extends Command implements PluginOwned
      */
     protected function openFlagsForm(Player $player): void
     {
-        $flags = [];
         $form = new SimpleForm(function (Player $player, int $data = null) use (&$flags, &$claim) {
             if ($data === null) {
                 return;
@@ -199,7 +198,7 @@ final class ClaimCommand extends Command implements PluginOwned
             return;
         }
 
-        $flags = [ClaimFlags::NO_BUILD, ClaimFlags::NO_BREAK, ClaimFlags::NO_PVP, ClaimFlags::NO_DAMAGE];
+        static $flags = [ClaimFlags::NO_BUILD, ClaimFlags::NO_BREAK, ClaimFlags::NO_PVP, ClaimFlags::NO_DAMAGE];
         foreach ($flags as $flag) {
             $active = $claim->isFlagActive($flag);
             $form->addButton(($active ? TextFormat::GREEN : TextFormat::RED) . ucfirst($flag));
