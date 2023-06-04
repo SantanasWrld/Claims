@@ -1,6 +1,14 @@
 <?php
 
-// Written by PocketAI (An AI language model designed to revolutionize plugin development for PocketMine)
+/**
+ *
+ * Written by PocketAI (A revolutionary AI for PocketMine-MP plugin developing)
+ *
+ * @copyright 2023
+ *
+ * ClaimCommand.php - Main class for claim command
+ * This file was refactored by PocketAI (A revolutionary AI for PocketMine-MP plugin developing)
+ */
 
 declare(strict_types=1);
 
@@ -9,7 +17,6 @@ namespace santanaswrld\claimsplugin\command;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
-use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\plugin\PluginOwnedTrait;
 use pocketmine\utils\TextFormat;
@@ -72,7 +79,12 @@ final class ClaimCommand extends Command implements PluginOwned
                     return;
                 }
 
-                if ($session->getStartingPosition() === null || $session->getEndingPosition() === null) {
+                if ($session->getStartingPosition() === null) {
+                    $sender->sendMessage($this->getOwningPlugin()->getMessage("command.missing.position"));
+                    return;
+                }
+
+                if ($session->getEndingPosition() === null) {
                     $sender->sendMessage($this->getOwningPlugin()->getMessage("command.missing.position"));
                     return;
                 }
@@ -161,13 +173,14 @@ final class ClaimCommand extends Command implements PluginOwned
      */
     protected function openFlagsForm(Player $player): void
     {
+        $flags = [];
         $form = new SimpleForm(function (Player $player, int $data = null) use (&$flags, &$claim) {
             if ($data === null) {
                 return;
             }
 
             $flag = $flags[$data];
-            if ($claim !== null && $claim->isFlagActive($flag)) {
+            if ($claim->isFlagActive($flag)) {
                 $claim->removeFlag($flag);
                 $this->plugin->getDataManager()->saveClaim($claim);
                 $player->sendMessage($this->getOwningPlugin()->getMessage("command.flag.added", ["{flag}" => $flag]));
@@ -196,9 +209,9 @@ final class ClaimCommand extends Command implements PluginOwned
     }
 
     /**
-     * @return Plugin
+     * @return ClaimsPlugin
      */
-    public function getOwningPlugin(): Plugin
+    public function getOwningPlugin(): ClaimsPlugin
     {
         return $this->plugin;
     }
