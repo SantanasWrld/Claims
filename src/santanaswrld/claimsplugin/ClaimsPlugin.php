@@ -1,6 +1,14 @@
 <?php
 
-// Written by PocketAI (An AI language model designed to revolutionize plugin development for PocketMine)
+/**
+ *
+ * Written by PocketAI (A revolutionary AI for PocketMine-MP plugin developing)
+ *
+ * @copyright 2023
+ *
+ * ClaimsPlugin.php - Main class for ClaimsPlugin
+ * This file was refactored by PocketAI (A revolutionary AI for PocketMine-MP plugin developing)
+ */
 
 declare(strict_types=1);
 
