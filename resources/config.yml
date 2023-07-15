@@ -20,3 +20,4 @@ messages:
   command.flag.added: "§aFlag {flag} has been removed from the claim."
   command.claim.create: "§aSuccessfully created claim {claim}."
   command.claims.overlap: "§cYour claim overlaps with another claim."
+  command.claim.wand: "§fYou've been given a claiming wand."

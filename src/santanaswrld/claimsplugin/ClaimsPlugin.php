@@ -9,7 +9,7 @@
  *   MM      YA.   ,A9 YM.    , MM `MbYM.    ,  MM    A'     VML   MM
  * .JMML.     `Ybmd9'   YMbmd'.JMML. YA`Mbmmd'  `Mbm.AMA.   .AMMA.JMML.
  *
- * This file was generated using PocketAI, Branch V7.11.3+dev
+ * This file was generated using PocketAI, Branch V7.12.4+dev
  *
  * PocketAI is private software: You can redistribute the files under
  * the terms of the GNU Affero General Public License as published by
@@ -36,6 +36,7 @@ namespace santanaswrld\claimsplugin;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\TextFormat;
 use santanaswrld\claimsplugin\command\ClaimCommand;
 use santanaswrld\claimsplugin\data\DataManager;
 use santanaswrld\claimsplugin\session\SessionManager;
@@ -104,8 +105,7 @@ final class ClaimsPlugin extends PluginBase
         }
 
         $messageTemplate = $messages[$key];
-
-        return strtr($messageTemplate, $values);
+        return TextFormat::colorize(strtr($messageTemplate, $values));
     }
 
     /**

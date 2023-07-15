@@ -9,7 +9,7 @@
  *   MM      YA.   ,A9 YM.    , MM `MbYM.    ,  MM    A'     VML   MM
  * .JMML.     `Ybmd9'   YMbmd'.JMML. YA`Mbmmd'  `Mbm.AMA.   .AMMA.JMML.
  *
- * This file was generated using PocketAI, Branch V7.11.3+dev
+ * This file was generated using PocketAI, Branch V7.12.4+dev
  *
  * PocketAI is private software: You can redistribute the files under
  * the terms of the GNU Affero General Public License as published by
@@ -115,6 +115,7 @@ final class DataManager
     }
 
     /**
+     * @internal TODO: Implement easier claim removing
      * @param Claim $claim
      * @return void
      */

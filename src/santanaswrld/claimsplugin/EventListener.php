@@ -9,7 +9,7 @@
  *   MM      YA.   ,A9 YM.    , MM `MbYM.    ,  MM    A'     VML   MM
  * .JMML.     `Ybmd9'   YMbmd'.JMML. YA`Mbmmd'  `Mbm.AMA.   .AMMA.JMML.
  *
- * This file was generated using PocketAI, Branch V7.11.3+dev
+ * This file was generated using PocketAI, Branch V7.12.4+dev
  *
  * PocketAI is private software: You can redistribute the files under
  * the terms of the GNU Affero General Public License as published by
@@ -36,10 +36,13 @@ namespace santanaswrld\claimsplugin;
 
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;
+use pocketmine\event\block\LeavesDecayEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\EntitySpawnEvent;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerExhaustEvent;
+use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\event\player\PlayerItemUseEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\player\Player;
@@ -153,6 +156,48 @@ final class EventListener implements Listener
                 } elseif ($claim->isFlagActive(ClaimFlags::NO_FALL) || $event->getCause() === EntityDamageEvent::CAUSE_FALL) {
                     $event->cancel();
                 }
+            }
+        }
+    }
+
+    /**
+     * @param PlayerExhaustEvent $event
+     * @return void
+     */
+    public function onExhaust(PlayerExhaustEvent $event): void
+    {
+        $player = $event->getPlayer();
+        $claim = $this->plugin->getDataManager()->getClaimByPosition($player->getPosition());
+        if ($claim !== null && $claim->isFlagActive(ClaimFlags::NO_STARVE)) {
+            $event->cancel();
+        }
+    }
+
+    /**
+     * @param LeavesDecayEvent $event
+     * @return void
+     */
+    public function onDecay(LeavesDecayEvent $event): void
+    {
+        $claim = $this->plugin->getDataManager()->getClaimByPosition($event->getBlock()->getPosition());
+        if ($claim !== null && $claim->isFlagActive(ClaimFlags::NO_DECAY)) {
+            $event->cancel();
+        }
+    }
+
+    /**
+     * @param PlayerInteractEvent $event
+     * @return void
+     */
+    public function onItemUse(PlayerInteractEvent $event): void
+    {
+        $player = $event->getPlayer();
+        $session = $this->plugin->getSessionManager()->getSession($player->getUniqueId()->getBytes());
+        if ($player->getInventory()->getItemInHand()->getNamedTag()->getInt("wand", 0) === 1) {
+            if ($event->getAction() == PlayerInteractEvent::LEFT_CLICK_BLOCK) {
+                $session->setStartingPosition($event->getBlock()->getPosition());
+            } elseif ($event->getAction() == PlayerInteractEvent::RIGHT_CLICK_BLOCK) {
+                $session->setEndingPosition($event->getBlock()->getPosition());
             }
         }
     }

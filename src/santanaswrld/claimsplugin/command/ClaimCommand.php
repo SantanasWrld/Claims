@@ -9,7 +9,7 @@
  *   MM      YA.   ,A9 YM.    , MM `MbYM.    ,  MM    A'     VML   MM
  * .JMML.     `Ybmd9'   YMbmd'.JMML. YA`Mbmmd'  `Mbm.AMA.   .AMMA.JMML.
  *
- * This file was generated using PocketAI, Branch V7.11.3+dev
+ * This file was generated using PocketAI, Branch V7.12.4+dev
  *
  * PocketAI is private software: You can redistribute the files under
  * the terms of the GNU Affero General Public License as published by
@@ -36,6 +36,7 @@ namespace santanaswrld\claimsplugin\command;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\plugin\PluginOwnedTrait;
@@ -110,8 +111,8 @@ final class ClaimCommand extends Command implements PluginOwned
                 }
 
                 $claimName = $args[1];
-                if ($this->getOwningPlugin()->getDataManager()->getClaimByName($claimName) !== null) {
-                    $claimName = $args[1] . mt_rand(1, 999999);
+                if ($this->getOwningPlugin()->getDataManager()->getClaimByName($claimName) == null) {
+                    $claimName = $args[1] . " " . mt_rand(1, 99);
                 }
 
                 $claim = new Claim($claimName, $session->getStartingPosition(), $session->getEndingPosition());
@@ -178,6 +179,19 @@ final class ClaimCommand extends Command implements PluginOwned
                 } else {
                     $sender->sendMessage($this->getOwningPlugin()->getMessage("command.claim.failed"));
                 }
+                break;
+
+            case "wand":
+                $wand = VanillaItems::GOLDEN_HOE()
+                    ->setCustomName(TextFormat::BOLD . TextFormat::GREEN . "Claim Wand")
+                    ->setLore([
+                        TextFormat::GRAY . "left click a block to set the first position.",
+                        TextFormat::GRAY . "right click a block to set the second position.",
+                        "finish the claiming process by running /claim create "
+                    ]);
+                $wand->getNamedTag()->setInt("wand", 1);
+                $sender->getInventory()->addItem($wand);
+                $sender->sendMessage($this->getOwningPlugin()->getMessage("command.claim.wand"));
                 break;
 
             case "help":

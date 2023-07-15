@@ -11,8 +11,8 @@ This plugin allows administrators to create, edit, list, and teleport to land cl
 ## Usage
 
 ### Claim Creation
-1. `/claim pos1`: Set the first position for the claim.
-2. `/claim pos2`: Set the second position for the claim.
+1. `/claim pos1` or `/claim wand`: Set the first position for the claim.
+2. `/claim pos2` or `/claim wand`: Set the second position for the claim.
 3. `/claim create [name]`: Create a claim with the specified name.
 
 ### Claim Management
@@ -29,6 +29,8 @@ This plugin allows administrators to create, edit, list, and teleport to land cl
 - `nofall`: Disables Fall Damage inside that Claim
 - `nodamage`: Disables All Damage inside that Claim
 - `nopvp`: Disables All Combat inside that Claim
+- `nostarve`: Disables All Player Hunger inside that Claim
+- `nodecay`: Disables All Leaves From Decaying inside that Claim
 
 ## Installation
 1. Copy the plugin `.phar` file to the `plugins` directory of your PocketMine server.
