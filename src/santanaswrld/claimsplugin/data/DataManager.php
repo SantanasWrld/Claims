@@ -115,9 +115,9 @@ final class DataManager
     }
 
     /**
-     * @internal TODO: Implement easier claim removing
      * @param Claim $claim
      * @return void
+     * @internal TODO: Implement easier claim removing
      */
     public function removeClaim(Claim $claim): void
     {

@@ -56,7 +56,7 @@ final class Session
      */
     public function __construct(
         protected ClaimsPlugin $plugin,
-        protected Player $player
+        protected Player       $player
     )
     {
     }

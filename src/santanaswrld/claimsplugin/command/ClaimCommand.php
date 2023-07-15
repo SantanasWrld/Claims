@@ -34,6 +34,7 @@ declare(strict_types=1);
 
 namespace santanaswrld\claimsplugin\command;
 
+use jojoe77777\FormAPI\SimpleForm;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\item\VanillaItems;
@@ -44,7 +45,6 @@ use pocketmine\utils\TextFormat;
 use santanaswrld\claimsplugin\ClaimsPlugin;
 use santanaswrld\claimsplugin\data\framework\Claim;
 use santanaswrld\claimsplugin\data\framework\flags\ClaimFlags;
-use jojoe77777\FormAPI\SimpleForm;
 
 final class ClaimCommand extends Command implements PluginOwned
 {
