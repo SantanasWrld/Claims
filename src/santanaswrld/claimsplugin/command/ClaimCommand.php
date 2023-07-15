@@ -111,7 +111,7 @@ final class ClaimCommand extends Command implements PluginOwned
                 }
 
                 $claimName = $args[1];
-                if ($this->getOwningPlugin()->getDataManager()->getClaimByName($claimName) == null) {
+                if ($this->getOwningPlugin()->getDataManager()->getClaimByName($claimName) !== null) {
                     $claimName = $args[1] . " " . mt_rand(1, 99);
                 }
 
@@ -234,7 +234,7 @@ final class ClaimCommand extends Command implements PluginOwned
         $form->setTitle("Edit Claim Flags");
         $form->setContent("Choose the flags you want to set:");
 
-        $flags = [ClaimFlags::NO_BUILD, ClaimFlags::NO_BREAK, ClaimFlags::NO_PVP, ClaimFlags::NO_DAMAGE];
+        $flags = [ClaimFlags::NO_BUILD, ClaimFlags::NO_BREAK, ClaimFlags::NO_PVP, ClaimFlags::NO_DAMAGE, ClaimFlags::NO_STARVE, ClaimFlags::NO_FALL, ClaimFlags::NO_DECAY];
         foreach ($flags as $flag) {
             $active = $claim->isFlagActive($flag);
             $form->addButton(($active ? TextFormat::GREEN : TextFormat::RED) . ucfirst($flag));
