@@ -41,9 +41,9 @@ use pocketmine\plugin\PluginOwned;
 use pocketmine\plugin\PluginOwnedTrait;
 use pocketmine\utils\TextFormat;
 use santanaswrld\claimsplugin\ClaimsPlugin;
-use santanaswrld\claimsplugin\command\form\SimpleForm;
 use santanaswrld\claimsplugin\data\framework\Claim;
 use santanaswrld\claimsplugin\data\framework\flags\ClaimFlags;
+use jojoe77777\FormAPI\SimpleForm;
 
 final class ClaimCommand extends Command implements PluginOwned
 {
