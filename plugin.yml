@@ -7,7 +7,7 @@ version: 0.1.2-ALPHA4
 api: [ 5.0.0 ]
 authors:
   - SantanasWRLD
-  - NopeNotDark
+  - NopeNotDark  
 
 permissions:
   claims.administrator:
