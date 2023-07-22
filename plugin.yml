@@ -3,7 +3,7 @@ name: Claims
 github: github.com/santanaswrld
 description: A Land Claiming Plugin completely written by PocketAI
 main: santanaswrld\claimsplugin\ClaimsPlugin
-version: 0.2.7-BETA3
+version: 0.2.7-BETA4
 api: [ 5.0.0 ]
 authors:
   - SantanasWRLD
