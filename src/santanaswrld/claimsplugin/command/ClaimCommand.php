@@ -56,7 +56,7 @@ final class ClaimCommand extends Command implements PluginOwned
     public function __construct(protected ClaimsPlugin $plugin)
     {
         parent::__construct("claim", "Claim Root Command", null, ["cl"]);
-        $this->setPermission("claims.administrator");
+        $this->setPermission("claims.command.administrator");
     }
 
     /**
@@ -128,6 +128,7 @@ final class ClaimCommand extends Command implements PluginOwned
                 break;
 
             case "editflags":
+            case "flags":
                 $this->openFlagsForm($sender);
                 break;
 

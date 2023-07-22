@@ -10,6 +10,6 @@ authors:
   - NopeNotDark  
 
 permissions:
-  claims.administrator:
+  claims.command.administrator:
     default: op
 ...

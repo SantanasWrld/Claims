@@ -5,7 +5,7 @@ messages:
   player.nopvp.attempt: "§cYou cannot engage in combat in this claim."
 
   # Commands
-  command.invalid.input: "§cPlease provide a valid sub-command§7: §fhelp, teleport, position1, position2, editflags, create, here, list."
+  command.invalid.input: "§cPlease provide a valid sub-command§7: §fwand, help, teleport, position1, position2, editflags, create, here, list."
   command.position1.success: "§aSuccessfully Set Position 1."
   command.position2.success: "§aSuccessfully Set Position 2."
   command.missing.name: "§cYou are missing the nametag argument."
